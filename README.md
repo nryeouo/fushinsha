@@ -1,2 +1,9 @@
 # fushinsha
-Japan Suspicious Person Infomation Center
+不審者情報を整理するアカウントと、そのためのコード  
+  
+アカウント https://machida.yokohama/@fushinsha  
+情報元 https://this.kiji.is/-/units/133089874031904245
+
+
+## License
+MIT
