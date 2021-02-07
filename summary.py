@@ -130,8 +130,6 @@ def todofuken(todayD):
     return ""
 
   placedict = zp3.to_dict()
-  
-  placedict = zenraplace.to_dict()
   tdfkmsg = "地域別の件数は、"
 
   for place, times in placedict.items():
