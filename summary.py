@@ -35,6 +35,10 @@ def parse():
     desc   = post["description"].translate(zenhan)
     pub_at = dt.datetime.strptime(post["published_at"], "%Y-%m-%dT%H:%M:%S+00:00")
     pub_at += dt.timedelta(hours=9) #Japan
+    
+    # 本文が空白の場合は飛ばす
+    if len(desc) == 0:
+      continue
 
     # 露出時刻
     if "分ごろ" not in desc:
