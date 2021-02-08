@@ -12,7 +12,7 @@ md = Mastodon(
 )
 
 token = "***CENSORED***"
-query = "unit_id:133089874031904245 全裸 OR 下半身"
+query = "unit_id:133089874031904245 全裸 OR 下半身露出"
 limit = "50"
 
 auth = {"Authorization": token}
