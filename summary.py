@@ -1,5 +1,6 @@
 import datetime as dt
 import pandas as pd
+from bs4 import BeautifulSoup
 from mastodon import Mastodon
 import re
 import requests
@@ -31,14 +32,17 @@ def parse():
   for post in j["posts"]:
 
     entry = {}
+    aid    = post["id"]
     title  = post["title"].translate(zenhan)
     desc   = post["description"].translate(zenhan)
     pub_at = dt.datetime.strptime(post["published_at"], "%Y-%m-%dT%H:%M:%S+00:00")
     pub_at += dt.timedelta(hours=9) #Japan
     
-    # 本文が空白の場合は飛ばす
+    # APIで本文が空白の場合はWebページに飛んで取ってくる
     if len(desc) == 0:
-      continue
+      r = requests.get(url="https://this.kiji.is/"+str(aid))
+      s = BeautifulSoup(r.text, "html.parser")
+      desc = s.find(class_="ma__p").text.translate(zenhan)
 
     # 露出時刻
     if "分ごろ" not in desc:
