@@ -47,8 +47,10 @@ def parse():
     # 露出時刻
     if "分ごろ" not in desc:
       naked = re.sub(r".+(午[前後]1?[0-9])時ごろ.+", r"\1:00", desc)
-    else:
+    elif "ごろ" in desc:
       naked = re.sub(r".+(午[前後]1?[0-9])時([0-9]{1,2})分ごろ.+", r"\1:\2", desc)
+    else:
+      naked = "AM 12:00"
     
     naked = naked.replace("午前", "AM ")
     naked = naked.replace("午後", "PM ")
