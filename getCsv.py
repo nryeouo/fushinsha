@@ -53,7 +53,7 @@ def parse(req):
     pub_at += dt.timedelta(hours=9) #Japan
 
     if len(desc) == 0:
-      r = requests.get(url="https://this.kiji.is/"+str(aid))
+      r = requests.get(url="https://nordot.app/"+str(aid))
       s = BeautifulSoup(r.text, "html.parser")
       desc = s.find(class_="ma__p").text.translate(zenhan)
       time.sleep(1)
